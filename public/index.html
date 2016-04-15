@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <title></title>
+</head>
+<body ng-app="todo">
+  <div class="container">
+    <div ng-controller="homeController as home">
+      {{home.message}}
+      {{home.user.name}}
+    </div>
+    <div ng-controller="todoController as todo">
+      Items: <span ng-show"todo.list.length">{{todo.list.length}}
+        <ul class="list-unstyled">
+          <li ng-repeat="item in todo.list">
+            <input ng-click="finished =!finished" type="checkbox">
+            <span ng-class="{'text-muted' :finished}">
+              {{item}}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <div ng-></div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
