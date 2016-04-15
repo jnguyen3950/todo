@@ -11,6 +11,11 @@
   </div>
   <div ng-controller="todoController as todo">
     {{todo.list}}
+    <ol class="list-unstyled">
+      <li ng-repeat="item in todo.list">
+        {{item}}
+      </li>
+    </ol>
   </div>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
   <script src="app.js"></script>
