@@ -12,11 +12,12 @@
       {{home.user.name}}
     </div>
     <div ng-controller="todoController as todo">
-      Items: <span ng-show"todo.list.length">{{todo.list.length}}
+      <span ng-show="todo.list.length !== 0">Items: {{todo.list.length}}</span>
+      <span ng-show="todo.list.length === 0">Nothing to do.</span>
         <ul class="list-unstyled">
           <li ng-repeat="item in todo.list">
-            <input ng-click="finished =!finished" type="checkbox">
-            <span ng-class="{'text-muted' :finished}">
+            <input ng-show="!finished" ng-click="finished =!finished; todo.finished(item)"; type="checkbox">
+            <span ng-class="{'hidden' :finished}">
               {{item}}
             </span>
           </li>
