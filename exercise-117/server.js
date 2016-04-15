@@ -8,4 +8,12 @@ app.get('/user', function(req, res) {
   res.json(user);
 })
 
+app.get('/todo/:user', function(req, res) {
+  if(req.params.user == 'Justin') {
+    var todos = ['eat', 'chill'];
+    res.send(todos);
+  }
+  else res.sendStatus(404);
+})
+
 app.listen(8080);
