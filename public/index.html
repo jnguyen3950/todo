@@ -8,8 +8,8 @@
 <body ng-app="todo">
   <div class="container">
     <div ng-controller="homeController as home">
-      {{home.message}}
-      {{home.user.name}}
+      <greeting></greeting>
+      
     </div>
     <div ng-controller="todoController as todo">
       <span ng-show="todo.list.length !== 0">Items: {{todo.list.length}}</span>
