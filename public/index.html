@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <title></title>
 </head>
 <body ng-app="todo">
@@ -14,16 +14,16 @@
     <div ng-controller="todoController as todo">
       <span ng-show="todo.list.length !== 0">Items: {{todo.list.length}}</span>
       <span ng-show="todo.list.length === 0">Nothing to do.</span>
-        <ul class="list-unstyled">
-          <li ng-repeat="item in todo.list">
-            <input ng-show="!finished" ng-click="finished =!finished; todo.finished(item)"; type="checkbox">
-            <span ng-class="{'hidden' :finished}">
-              {{item}}
-            </span>
-          </li>
-        </ul>
-      </div>
+      <ul class="list-unstyled">
+        <li ng-repeat="item in todo.list">
+          <input ng-click="todo.finished(item)"; type="checkbox">
+          {{item.exercise}}
+        </li>
+      </ul>
+      <input ng-model="task"; class="form-control" type="text">
+      <button ng-click="todo.add(task)"; class="btn btn-default btn-success">Add</button>
     </div>
+  </div>
   <div ng-></div>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
