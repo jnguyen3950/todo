@@ -17,10 +17,13 @@ app.get('/todo', function(req, res) {
       var tasks = db.collection('tasks');
       tasks.find({}).toArray(function(error, docs) {
         res.send(docs);
-      })
+        db.close();
+      });
     }
-    else res.sendStatus(err);
-    db.close();
+    else {
+      res.sendStatus(err);
+      db.close();
+    }
   });
 });
 
@@ -28,11 +31,14 @@ app.post('/todo/:newExercise', function(req, res) {
   MongoClient.connect(url, function(err, db) {
     if(!err) {
       insertDocument(db, req.params.newExercise, function(results) {
-      })
+      });
       res.send();
+      db.close();
     }
-    else res.sendStatus(err);
-    db.close();
+    else {
+      res.sendStatus(err);
+      db.close();
+    }
   });
 });
 
@@ -40,11 +46,14 @@ app.delete('/todo/:exercise', function(req, res) {
   MongoClient.connect(url, function(err, db) {
     if(!err) {
       deleteItem(db, req.params.exercise, function(results) {
-      })
+      });
       res.send();
+      db.close();
     }
-    else res.sendStatus(err);
-    db.close();
+    else {
+      res.sendStatus(err);
+      db.close();
+    }
   });
 });
 
