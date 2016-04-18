@@ -28,7 +28,6 @@ app.post('/todo/:newExercise', function(req, res) {
   MongoClient.connect(url, function(err, db) {
     if(!err) {
       insertDocument(db, req.params.newExercise, function(results) {
-        console.log(results.result);
       })
       res.send();
     }
@@ -41,7 +40,6 @@ app.delete('/todo/:exercise', function(req, res) {
   MongoClient.connect(url, function(err, db) {
     if(!err) {
       deleteItem(db, req.params.exercise, function(results) {
-        console.log(results.result);
       })
       res.send();
     }
