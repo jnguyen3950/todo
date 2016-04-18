@@ -3,9 +3,9 @@ var mocha = require('gulp-mocha');
 var nodemon = require('gulp-nodemon');
 var exec = require('child_process').exec;
 
-gulp.task('runTest', function() {
+gulp.task('test', function() {
   return gulp.src('server.spec.js', {read: false})
   .pipe(mocha());
 });
 
-gulp.task('default', ['runTest'])
+gulp.task('default', ['test'])
