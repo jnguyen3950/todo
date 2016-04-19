@@ -14,16 +14,17 @@
         </div>
       </div>
       <div class="panel-body">
-        <div ng-controller="todoController as todo">
-          <count></count>
-          <list></list>
-          <add></add>
-        </div>
+        <a href="/#/todo">Show</a>
+      </div>
+
+        <div ng-view></div>
+
       </div>
     </div>
   </div>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="app.js"></script>
   <script src="todo/todo.controller.js"></script>
