@@ -14,8 +14,10 @@
         </div>
       </div>
       <div class="panel-body">
-        <a ng-click="start = !start" ng-show="start" href="/#/todo">Show</a>
-        <div ng-view></div>
+        <div ng-controller="todoController as todo">
+          <a id='show' ng-click="start = !start" ng-show="start" href="/#/todo">Show</a>
+          <div ng-view></div>
+        </div>
     </div>
   </div>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -26,6 +28,7 @@
   <script src="home/home.controller.js"></script>
   <script src="todo/todo.controller.js"></script>
   <script src="home/greeting.directive.js"></script>
+  <script src="todo/current.directive.js"></script>
   <script src="todo/add.directive.js"></script>
   <script src="todo/count.directive.js"></script>
   <script src="todo/list.directive.js"></script>

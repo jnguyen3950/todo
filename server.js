@@ -58,8 +58,10 @@ app.delete('/todo/:exercise', function(req, res) {
 });
 
 var insertDocument = function(db, exercise, callback) {
+  var date = new Date();
+  date.setDate(date.getDate() + 3);
   var tasks = db.collection('tasks');
-  tasks.insert({exercise: exercise}), function(err, result) {
+  tasks.insert({exercise: exercise, date: date}), function(err, result) {
     callback(result);
   }
 }
