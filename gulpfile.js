@@ -1,11 +1,22 @@
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var mocha = require('gulp-mocha');
 var nodemon = require('gulp-nodemon');
 var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
 
-gulp.task('test', function() {
-  return gulp.src('server.spec.js', {read: false})
+gulp.task('mocha', function() {
+  return gulp.src('tests/server.spec.js', {read: false})
   .pipe(mocha());
 });
 
-gulp.task('default', ['test'])
+gulp.task('casper', function() {
+  var casperTest = ['tests/casper.spec.js'];
+  var casperChild = spawn('casperjs', ['test'].concat(casperTest));
+
+  casperChild.stdout.on('data', function (data) {
+    gutil.log('CasperJS:', data.toString().slice(0, -1));
+  });
+});
+
+gulp.task('default', ['mocha', 'casper'])
