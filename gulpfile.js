@@ -3,7 +3,7 @@ var gutil = require('gulp-util');
 var mocha = require('gulp-mocha');
 var nodemon = require('gulp-nodemon');
 var exec = require('child_process').exec;
-var childNode = exec('node server.js');
+// var childNode = exec('node server.js');
 var spawn = require('child_process').spawn;
 
 gulp.task('mocha', function() {
@@ -13,7 +13,7 @@ gulp.task('mocha', function() {
 
 gulp.task('killNode', ['casper'], function() {
   childNode.kill();
-  process.exit(0);
+  // process.exit();
 });
 
 gulp.task('casper', function() {
@@ -25,4 +25,4 @@ gulp.task('casper', function() {
   });
 });
 
-gulp.task('default', ['mocha', 'killNode'])
+gulp.task('default', ['mocha', 'killNode']);
