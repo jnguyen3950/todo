@@ -3,7 +3,7 @@ var gutil = require('gulp-util');
 var mocha = require('gulp-mocha');
 var nodemon = require('gulp-nodemon');
 var exec = require('child_process').exec;
-// var childNode = exec('node server.js');
+var childNode = exec('node server.js');
 var spawn = require('child_process').spawn;
 
 gulp.task('mocha', function() {
@@ -11,18 +11,16 @@ gulp.task('mocha', function() {
   .pipe(mocha());
 });
 
+var casperJs = require('gulp-casperjs');
+gulp.task('casper', function () {
+  return gulp.src('tests/casper.spec.js')
+    .pipe(casperJs({command:'test'}));
+});
+
 gulp.task('killNode', ['casper'], function() {
   childNode.kill();
-  // process.exit();
 });
 
-gulp.task('casper', function() {
-  var casperTest = ['tests/casper.spec.js'];
-  var casperChild = spawn('casperjs', ['test'].concat(casperTest));
-
-  casperChild.stdout.on('data', function (data) {
-    gutil.log('CasperJS:', data.toString().slice(0, -1));
-  });
+gulp.task('default', ['mocha', 'killNode'], function() {
+  process.exit(0);
 });
-
-gulp.task('default', ['mocha', 'killNode']);
