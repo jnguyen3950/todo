@@ -13,7 +13,7 @@ gulp.task('mocha', function() {
 
 gulp.task('killNode', ['casper'], function() {
   childNode.kill();
-  process.exit();
+  process.exit(0);
 });
 
 gulp.task('casper', function() {
