@@ -1,8 +1,3 @@
-var app = require('../server.js');
-var RANDOMIZE = 0;
-var server = app.listen(RANDOMIZE);
-var port = server.address().port;
-
 casper.test.begin('Todo casper test suit', 4, function suite(test) {
   var initCount;
   var afterCount;
@@ -19,7 +14,7 @@ casper.test.begin('Todo casper test suit', 4, function suite(test) {
 
   casper.then(function() {
     beforeCount = casper.getElementsBounds("input").length;
-    this.sendKeys('input#newTask', 'set Task');
+    this.sendKeys('input#newTask', 'Casper Test Task');
     this.click('#addButton');
   });
 
