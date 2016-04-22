@@ -25,4 +25,4 @@ gulp.task('casper', function() {
   });
 });
 
-gulp.task('default', ['mocha', 'casper'])
+gulp.task('default', ['mocha', 'killNode'])
