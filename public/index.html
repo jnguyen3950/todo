@@ -12,9 +12,6 @@
         <div class="navbar-brand">TaskTracker</div>
       </div>
       <form class="navbar-form navbar-right">
-        <div ng-controller="todoController as todo">
-          <log></log>
-        </div>
       </form>
     </div>
   </nav>
@@ -27,7 +24,9 @@
       </div>
       <div class="panel-body">
         <div ng-controller="todoController as todo">
-          <a id="show" ng-click="start = !start" ng-show="start" href="/#/todo">Show</a>
+          <a id="show" ng-click="start = !start" ng-show="start" href="/#/todo">
+            <log></log>
+          </a>
           <div ng-view></div>
         </div>
     </div>

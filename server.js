@@ -7,7 +7,7 @@ var url = 'mongodb://localhost/test';
 app.use(express.static('./public'));
 
 app.get('/user', function(req, res) {
-  var user = {name: 'Justin'};
+  var user = {name: 'User'};
   res.json(user);
 });
 

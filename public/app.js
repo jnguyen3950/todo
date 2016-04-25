@@ -6,7 +6,7 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'todo/show.directive.html',
     controller: 'todoController',
     controllerAs: 'todo'
-  })
+  });
 }]);
 
 app.controller('')

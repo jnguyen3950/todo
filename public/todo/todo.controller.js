@@ -2,8 +2,7 @@ var app = angular.module('todo');
 
 app.controller('todoController', todo);
 
-app.$inject = ['$interval'];
-app.$inject = ['userService'];
+app.$inject = ['$scope', '$interval', 'userService'];
 
 function todo($http, $interval, userService) {
   var vm = this;
