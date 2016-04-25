@@ -1,6 +1,16 @@
 <ul class="list-unstyled">
   <li ng-repeat="item in todo.list">
-    <input ng-click="todo.finished(item)"; type="checkbox">
-    {{item.exercise}}
+    <div class="row">
+      <div class="col-md-3">
+        <input ng-click="todo.finished(item)" class="finish" type="checkbox">
+        <strong>{{item.exercise}}</strong>
+      </div>
+      <div class="col-md-5">
+        should be finished by <strong>{{item.date | date:"medium"}}</strong>
+      </div>
+      <!-- <div class="col-md-4">
+        Time left: <strong> {{todo.remain | date:"dd, hh:mm:ss"}}</strong>
+      </div> -->
+    </div>
   </li>
 </ul>

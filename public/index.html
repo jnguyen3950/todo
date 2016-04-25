@@ -3,9 +3,18 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <title></title>
+  <title>Todo</title>
 </head>
-<body ng-app="todo">
+<body ng-app="todo" ng-init="start = true">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="navbar-brand">TaskTracker</div>
+      </div>
+      <form class="navbar-form navbar-right">
+      </form>
+    </div>
+  </nav>
   <div class="container">
     <div class="panel panel-info">
       <div class="panel-heading">
@@ -15,21 +24,26 @@
       </div>
       <div class="panel-body">
         <div ng-controller="todoController as todo">
-          <count></count>
-          <list></list>
-          <add></add>
+          <a id="show" ng-click="start = !start" ng-show="start" href="/#/todo">
+            <log></log>
+          </a>
+          <div ng-view></div>
         </div>
-      </div>
     </div>
   </div>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="app.js"></script>
+  <script src="home/home.controller.js"></script>
   <script src="todo/todo.controller.js"></script>
   <script src="home/greeting.directive.js"></script>
+  <script src="todo/log.directive.js"></script>
+  <script src="todo/current.directive.js"></script>
   <script src="todo/add.directive.js"></script>
   <script src="todo/count.directive.js"></script>
   <script src="todo/list.directive.js"></script>
+  <script src="factory/user.service.js"></script>
 </body>
 </html>
